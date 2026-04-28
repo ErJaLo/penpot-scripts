@@ -20,10 +20,10 @@ for (let i = 0; i < dictionary.length; i++) {
   instance.y = Math.floor(i / COLS) * (CARD_SIZE + GAP);
 
   // Navega la jerarquía: simple > value1 > [capa]
-  const value1 = instance.findChild("value1");
+    const value1 = instance.findChild("simple"); // antes era "value1"
 
-  value1.findChild("character").characters   = entry.character;
-  value1.findChild("pinyin").characters       = entry.pinyin;
-  value1.findChild("translation_es").characters = entry.translation_es;
+    value1.findChild("character").characters      = entry.character;
+    value1.findChild("pinyin").characters         = entry.pinyin;
+    value1.findChild("translation_es").characters = entry.translation_es;
   // separator no necesita texto, es visual
 }
