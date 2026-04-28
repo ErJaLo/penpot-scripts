@@ -1,0 +1,8 @@
+{
+  "name": "FlashCard Generator",
+  "description": "Genera flashcards desde un diccionario",
+  "host": "http://localhost:5173",
+  "code": "plugin.js",
+  "icon": "/icon.png",
+  "permissions": ["content:read", "content:write", "allow:downloads"]
+}
