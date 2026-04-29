@@ -1,17 +1,18 @@
+// Ver si group devuelve algo útil o si hay otro método
+console.log("typeof penpot.group:", typeof penpot.group);
+console.log("typeof penpot.ungroup:", typeof penpot.ungroup);
+console.log("typeof penpot.flatten:", typeof penpot.flatten);
+console.log("typeof penpot.createVariantFromComponents:", typeof penpot.createVariantFromComponents);
+
+// Intentar duplicar seleccionando y usando group trick
 const board = penpot.root.children?.find(s => s.name === "Board");
 const masterShape = board?.children?.find(s => s.name === "simple");
 
-// Inspeccionar hijos del shape
-console.log("children:", masterShape?.children?.map(c => ({ name: c.name, type: c.type })));
+// Seleccionar el shape
+penpot.selection = [masterShape];
 
-// Bajar al variant 'simple' dentro
-const variant = masterShape?.children?.find(c => c.name === "simple");
-console.log("variant children:", variant?.children?.map(c => ({ name: c.name, type: c.type })));
-
-// Intentar editar un texto directamente
-const charShape = variant?.children?.find(c => c.name === "character");
-console.log("charShape:", charShape?.name, typeof charShape?.characters);
-if (charShape) {
-  charShape.characters = "TEST";
-  console.log("✓ Texto modificado");
+// Ver si penpot.ui tiene sendMessage o similar
+console.log("ui keys:", Object.keys(penpot.ui));
+for (const key of Object.keys(penpot.ui)) {
+  console.log(`ui.${key}:`, typeof penpot.ui[key]);
 }
