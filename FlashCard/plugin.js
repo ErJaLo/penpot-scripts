@@ -26,7 +26,8 @@ try {
   console.log("Componente proto:", Object.getOwnPropertyNames(Object.getPrototypeOf(mainComponent)));
   console.log("[1] Total componentes:", components.length);
   components.forEach(c => console.log("    -", c.name, "| id:", c.id));
-
+  console.log("currentPage proto:", Object.getOwnPropertyNames(Object.getPrototypeOf(penpot.currentPage)));
+  console.log("penpot proto:", Object.getOwnPropertyNames(Object.getPrototypeOf(penpot)));
   if (!mainComponent) {
     console.error("[!] Componente 'simple' no encontrado. Abortando.");
   } else {
