@@ -1,17 +1,17 @@
 const board = penpot.root.children?.find(s => s.name === "Board");
 const masterShape = board?.children?.find(s => s.name === "simple");
 
-console.log("masterShape.id:", masterShape?.id);
+// Inspeccionar hijos del shape
+console.log("children:", masterShape?.children?.map(c => ({ name: c.name, type: c.type })));
 
-// Intentar seleccionarlo y ver qué pasa
-penpot.selection = [masterShape];
-console.log("selection después:", JSON.stringify(penpot.selection));
+// Bajar al variant 'simple' dentro
+const variant = masterShape?.children?.find(c => c.name === "simple");
+console.log("variant children:", variant?.children?.map(c => ({ name: c.name, type: c.type })));
 
-// Ver si hay duplicate en penpot directamente
-console.log("typeof penpot.duplicate:", typeof penpot.duplicate);
-console.log("typeof penpot.copy:", typeof penpot.copy);
-console.log("typeof penpot.clone:", typeof penpot.clone);
-
-// Ver todas las funciones de penpot
-const fns = Object.keys(penpot).filter(k => typeof penpot[k] === 'function');
-console.log("Todas las funciones de penpot:", fns);
+// Intentar editar un texto directamente
+const charShape = variant?.children?.find(c => c.name === "character");
+console.log("charShape:", charShape?.name, typeof charShape?.characters);
+if (charShape) {
+  charShape.characters = "TEST";
+  console.log("✓ Texto modificado");
+}
