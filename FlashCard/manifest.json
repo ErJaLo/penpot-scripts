@@ -2,7 +2,7 @@
   "name": "FlashCard Generator",
   "description": "Genera flashcards desde un diccionario",
   "host": "https://raw.githubusercontent.com/ErJaLo/penpot-scripts/refs/heads/main/FlashCard",
-  "code": "plugin.js",
+  "code": "https://raw.githubusercontent.com/ErJaLo/penpot-scripts/refs/heads/main/FlashCard/plugin.js",
   "icon": "/icon.png",
   "permissions": ["content:read", "content:write"]
 }
