@@ -1,17 +1,17 @@
 const board = penpot.root.children?.find(s => s.name === "Board");
 const masterShape = board?.children?.find(s => s.name === "simple");
 
-// Ver si tiene info de componente
-console.log("mainComponent:", masterShape?.mainComponent);
-console.log("componentId:", masterShape?.componentId);
-console.log("mainInstance:", masterShape?.mainInstance);
+console.log("masterShape.id:", masterShape?.id);
 
-// Ver si penpot.selection tiene métodos útiles
-console.log("selection keys:", Object.keys(penpot.selection));
-console.log("selection:", JSON.stringify(penpot.selection));
+// Intentar seleccionarlo y ver qué pasa
+penpot.selection = [masterShape];
+console.log("selection después:", JSON.stringify(penpot.selection));
 
-// Ver si history tiene duplicate
-console.log("history keys:", Object.keys(penpot.history));
-for (const key of Object.keys(penpot.history)) {
-  console.log(`history.${key}:`, typeof penpot.history[key]);
-}
+// Ver si hay duplicate en penpot directamente
+console.log("typeof penpot.duplicate:", typeof penpot.duplicate);
+console.log("typeof penpot.copy:", typeof penpot.copy);
+console.log("typeof penpot.clone:", typeof penpot.clone);
+
+// Ver todas las funciones de penpot
+const fns = Object.keys(penpot).filter(k => typeof penpot[k] === 'function');
+console.log("Todas las funciones de penpot:", fns);
