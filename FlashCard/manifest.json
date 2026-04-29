@@ -4,5 +4,10 @@
   "host": "https://raw.githubusercontent.com/ErJaLo/penpot-scripts/refs/heads/main/FlashCard",
   "code": "https://raw.githubusercontent.com/ErJaLo/penpot-scripts/refs/heads/main/FlashCard/plugin.js",
   "icon": "/icon.png",
-  "permissions": ["content:read", "content:write"]
+  "permissions": [
+    "content:read",
+    "content:write",
+    "library:read",
+    "library:write"
+  ]
 }
