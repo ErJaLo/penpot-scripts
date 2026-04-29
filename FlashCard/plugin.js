@@ -1,14 +1,12 @@
-// Ver todas las keys de penpot sin ejecutar getters
-console.log("penpot keys completo:", JSON.stringify(Object.keys(penpot)));
-console.log("penpot.root keys:", JSON.stringify(Object.keys(penpot.root)));
+// Ver qué métodos tiene un shape (el componente maestro en el canvas)
+const allShapes = penpot.root.children;
+console.log("root children count:", allShapes?.length);
+console.log("root children names:", allShapes?.map(c => c.name));
 
-// Ver si root tiene métodos útiles
-for (const key of Object.keys(penpot.root)) {
-  console.log(`root.${key}:`, typeof penpot.root[key]);
+const masterShape = allShapes?.find(s => s.name === "simple");
+console.log("masterShape keys:", masterShape ? Object.keys(masterShape) : "no encontrado");
+if (masterShape) {
+  for (const key of Object.keys(masterShape)) {
+    console.log(`masterShape.${key}:`, typeof masterShape[key]);
+  }
 }
-
-// Ver si hay createShape, createInstance, etc. directamente en penpot
-const interestingKeys = Object.keys(penpot).filter(k => 
-  typeof penpot[k] === 'function' || k.includes('create') || k.includes('shape') || k.includes('instance')
-);
-console.log("penpot funciones/interesantes:", interestingKeys);
