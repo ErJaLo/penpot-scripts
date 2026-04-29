@@ -1,18 +1,14 @@
-console.log("penpot keys:", Object.keys(penpot));
-console.log("currentPage keys:", Object.keys(penpot.currentPage));
+// Ver todas las keys de penpot sin ejecutar getters
+console.log("penpot keys completo:", JSON.stringify(Object.keys(penpot)));
+console.log("penpot.root keys:", JSON.stringify(Object.keys(penpot.root)));
 
-for (const key of Object.keys(penpot)) {
-  console.log(`penpot.${key}:`, typeof penpot[key]);
+// Ver si root tiene métodos útiles
+for (const key of Object.keys(penpot.root)) {
+  console.log(`root.${key}:`, typeof penpot.root[key]);
 }
 
-for (const key of Object.keys(penpot.currentPage)) {
-  console.log(`currentPage.${key}:`, typeof penpot.currentPage[key]);
-}
-
-const shape = penpot.currentPage.findShapes({ name: "simple" })?.[0];
-console.log("shape keys:", shape ? Object.keys(shape) : "no encontrado");
-if (shape) {
-  for (const key of Object.keys(shape)) {
-    console.log(`shape.${key}:`, typeof shape[key]);
-  }
-}
+// Ver si hay createShape, createInstance, etc. directamente en penpot
+const interestingKeys = Object.keys(penpot).filter(k => 
+  typeof penpot[k] === 'function' || k.includes('create') || k.includes('shape') || k.includes('instance')
+);
+console.log("penpot funciones/interesantes:", interestingKeys);
